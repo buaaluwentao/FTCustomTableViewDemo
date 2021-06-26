@@ -10,6 +10,7 @@
 #import "FTImageTableViewCell.h"
 #import "FTCellModelProtocol.h"
 #import "UITableView+ReuseIdentifier.h"
+#import "FTTableViewCell.h"
 
 @implementation ViewController (DataSource)
 
@@ -18,18 +19,22 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"section=%@,index=%@", @(indexPath.section), @(indexPath.row));
     id<FTCellModelProtocol> cellModel = self.cellModels[indexPath.row];
-    UITableViewCell *cell;
+    id<FTTableViewCellProtocol> cell;
     if ([cellModel type] == FTCellModelTypesText) {
         cell = [tableView cellWithReuseIdentifier:FTTextTableViewCell.identifier];
     } else {
         cell = [tableView cellWithReuseIdentifier:FTImageTableViewCell.identifier];
     }
     
-    [((id<FTTableViewCellProtocol>)cell) bindViewModel:cellModel];
-    NSLog(@"%p", cell);
-    return cell;
+    [cell bindViewModel:cellModel];
+    return (UITableViewCell *)cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    label.text = @"titleofheader";
+    return label;
 }
 
 @end

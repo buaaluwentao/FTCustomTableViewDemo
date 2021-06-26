@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITableView (ReuseIdentifier)
 
-- (UITableViewCell *)cellWithReuseIdentifier:(NSString *)identifier;
+- (__kindof UITableViewCell *)cellWithReuseIdentifier:(NSString *)identifier;
 
 @end
 

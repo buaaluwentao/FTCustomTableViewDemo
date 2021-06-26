@@ -9,7 +9,7 @@
 
 @implementation UITableView (ReuseIdentifier)
 
-- (UITableViewCell *)cellWithReuseIdentifier:(NSString *)identifier {
+- (__kindof UITableViewCell *)cellWithReuseIdentifier:(NSString *)identifier {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         [self registerClass:NSClassFromString(identifier) forCellReuseIdentifier:identifier];
