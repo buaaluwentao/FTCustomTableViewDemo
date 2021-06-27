@@ -20,7 +20,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.label = [[UILabel alloc] init];
-        [self addSubview:self.label];
+        [self.contentView addSubview:self.label];
     }
     return self;
 }
