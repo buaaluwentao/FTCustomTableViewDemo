@@ -5,11 +5,11 @@
 //  Created by wentao lu on 2021/6/26.
 //
 
-#import "ViewController.h"
+#import "FTTableviewCellHandler.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController (Delegate)<UITableViewDelegate>
+@interface FTTableviewCellHandler (Delegate)
 
 @end
 

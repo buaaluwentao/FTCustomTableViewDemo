@@ -19,9 +19,10 @@
 		556FE80526872AF90095BB21 /* FTTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FE80426872AF90095BB21 /* FTTextTableViewCell.m */; };
 		556FE80A26872B370095BB21 /* FTImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FE80926872B370095BB21 /* FTImageTableViewCell.m */; };
 		556FE80F26872C220095BB21 /* FTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FE80E26872C220095BB21 /* FTTableViewCell.m */; };
-		556FE81626872E650095BB21 /* ViewController+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FE81526872E650095BB21 /* ViewController+Delegate.m */; };
-		556FE81B26872EA90095BB21 /* ViewController+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FE81A26872EA90095BB21 /* ViewController+DataSource.m */; };
+		556FE81626872E650095BB21 /* FTTableviewCellHandler+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FE81526872E650095BB21 /* FTTableviewCellHandler+Delegate.m */; };
+		556FE81B26872EA90095BB21 /* FTTableviewCellHandler+DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FE81A26872EA90095BB21 /* FTTableviewCellHandler+DataSource.m */; };
 		556FE823268753580095BB21 /* UITableView+ReuseIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 556FE822268753580095BB21 /* UITableView+ReuseIdentifier.m */; };
+		55C0120226905EBF009DAB7C /* FTTableviewCellHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C0120126905EBF009DAB7C /* FTTableviewCellHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,13 +52,16 @@
 		556FE80D26872C220095BB21 /* FTTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTTableViewCell.h; sourceTree = "<group>"; };
 		556FE80E26872C220095BB21 /* FTTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTTableViewCell.m; sourceTree = "<group>"; };
 		556FE81226872C9E0095BB21 /* FTTableViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTTableViewCellProtocol.h; sourceTree = "<group>"; };
-		556FE81426872E650095BB21 /* ViewController+Delegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+Delegate.h"; sourceTree = "<group>"; };
-		556FE81526872E650095BB21 /* ViewController+Delegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+Delegate.m"; sourceTree = "<group>"; };
-		556FE81926872EA90095BB21 /* ViewController+DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+DataSource.h"; sourceTree = "<group>"; };
-		556FE81A26872EA90095BB21 /* ViewController+DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+DataSource.m"; sourceTree = "<group>"; };
+		556FE81426872E650095BB21 /* FTTableviewCellHandler+Delegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FTTableviewCellHandler+Delegate.h"; sourceTree = "<group>"; };
+		556FE81526872E650095BB21 /* FTTableviewCellHandler+Delegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FTTableviewCellHandler+Delegate.m"; sourceTree = "<group>"; };
+		556FE81926872EA90095BB21 /* FTTableviewCellHandler+DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FTTableviewCellHandler+DataSource.h"; sourceTree = "<group>"; };
+		556FE81A26872EA90095BB21 /* FTTableviewCellHandler+DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FTTableviewCellHandler+DataSource.m"; sourceTree = "<group>"; };
 		556FE81E268733A60095BB21 /* FTCellModelTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTCellModelTypes.h; sourceTree = "<group>"; };
 		556FE821268753580095BB21 /* UITableView+ReuseIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+ReuseIdentifier.h"; sourceTree = "<group>"; };
 		556FE822268753580095BB21 /* UITableView+ReuseIdentifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ReuseIdentifier.m"; sourceTree = "<group>"; };
+		55C0120026905EBF009DAB7C /* FTTableviewCellHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTTableviewCellHandler.h; sourceTree = "<group>"; };
+		55C0120126905EBF009DAB7C /* FTTableviewCellHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTTableviewCellHandler.m; sourceTree = "<group>"; };
+		55C0120A2690639B009DAB7C /* FTTableViewCellHandlerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTTableViewCellHandlerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 		556FE7BC2687221E0095BB21 /* FTTableviewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				55C0120426905ED0009DAB7C /* handler */,
 				556FE81F268733AD0095BB21 /* enum */,
 				556FE81826872E800095BB21 /* category */,
 				556FE80726872B070095BB21 /* view */,
@@ -128,6 +133,7 @@
 				556FE7F2268728270095BB21 /* FTTextCellModelProtocol.h */,
 				556FE7F3268728E10095BB21 /* FTImageCellModelProtocol.h */,
 				556FE81226872C9E0095BB21 /* FTTableViewCellProtocol.h */,
+				55C0120A2690639B009DAB7C /* FTTableViewCellHandlerDelegate.h */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -148,10 +154,10 @@
 		556FE81826872E800095BB21 /* category */ = {
 			isa = PBXGroup;
 			children = (
-				556FE81426872E650095BB21 /* ViewController+Delegate.h */,
-				556FE81526872E650095BB21 /* ViewController+Delegate.m */,
-				556FE81926872EA90095BB21 /* ViewController+DataSource.h */,
-				556FE81A26872EA90095BB21 /* ViewController+DataSource.m */,
+				556FE81426872E650095BB21 /* FTTableviewCellHandler+Delegate.h */,
+				556FE81526872E650095BB21 /* FTTableviewCellHandler+Delegate.m */,
+				556FE81926872EA90095BB21 /* FTTableviewCellHandler+DataSource.h */,
+				556FE81A26872EA90095BB21 /* FTTableviewCellHandler+DataSource.m */,
 				556FE821268753580095BB21 /* UITableView+ReuseIdentifier.h */,
 				556FE822268753580095BB21 /* UITableView+ReuseIdentifier.m */,
 			);
@@ -164,6 +170,15 @@
 				556FE81E268733A60095BB21 /* FTCellModelTypes.h */,
 			);
 			path = enum;
+			sourceTree = "<group>";
+		};
+		55C0120426905ED0009DAB7C /* handler */ = {
+			isa = PBXGroup;
+			children = (
+				55C0120026905EBF009DAB7C /* FTTableviewCellHandler.h */,
+				55C0120126905EBF009DAB7C /* FTTableviewCellHandler.m */,
+			);
+			path = handler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,9 +259,10 @@
 				556FE7FB2687295A0095BB21 /* FTImageCellModel.m in Sources */,
 				556FE823268753580095BB21 /* UITableView+ReuseIdentifier.m in Sources */,
 				556FE7D02687221F0095BB21 /* main.m in Sources */,
-				556FE81B26872EA90095BB21 /* ViewController+DataSource.m in Sources */,
+				556FE81B26872EA90095BB21 /* FTTableviewCellHandler+DataSource.m in Sources */,
 				556FE7C22687221E0095BB21 /* SceneDelegate.m in Sources */,
-				556FE81626872E650095BB21 /* ViewController+Delegate.m in Sources */,
+				556FE81626872E650095BB21 /* FTTableviewCellHandler+Delegate.m in Sources */,
+				55C0120226905EBF009DAB7C /* FTTableviewCellHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

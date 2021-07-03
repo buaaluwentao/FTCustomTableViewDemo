@@ -7,14 +7,16 @@
 
 #import "ViewController.h"
 #import "FTCellModelProtocol.h"
-#import "ViewController+Delegate.h"
-#import "ViewController+DataSource.h"
+#import "FTTableviewCellHandler+Delegate.h"
+#import "FTTableviewCellHandler+DataSource.h"
 #import "FTTextCellModel.h"
 #import "FTImageCellModel.h"
+#import "FTTableviewCellHandler.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, strong) id<FTTableViewCellHandlerDelegate> tableViewHandler;
 
 @end
 
@@ -22,33 +24,58 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableViewHandler = [[FTTableviewCellHandler alloc] init];
+    _tableViewHandler.viewController = self;
+    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    _tableView.estimatedRowHeight = 50;
-    _tableView.rowHeight = UITableViewAutomaticDimension;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
+    {
+        _tableView.estimatedRowHeight = 50;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    };
     [self.view addSubview:_tableView];
 }
 
-- (NSArray<id<FTCellModelProtocol>> *)cellModels {
-    if (!_cellModels) {
-        _cellModels = [[NSMutableArray alloc] init];
-        for (int i = 0; i < 100; i++) {
-            int row = (arc4random() % 100);
-            if (row % 2 == 0) {
-                FTTextCellModel *model = [[FTTextCellModel alloc] init];
-                model.text = [NSString stringWithFormat:@"第%@行", @(i+1)];
-                [_cellModels addObject:model];
-            } else {
-                FTImageCellModel *model = [[FTImageCellModel alloc] init];
-                model.image = [UIImage imageNamed:@"card"];
-                [_cellModels addObject:model];
-            }
-        }
-    }
-    return _cellModels;
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_tableViewHandler tableView:tableView canEditRowAtIndexPath:indexPath];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_tableViewHandler tableView:tableView editingStyleForRowAtIndexPath:indexPath];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_tableViewHandler tableView:tableView titleForDeleteConfirmationButtonForRowAtIndexPath:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [_tableViewHandler tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_tableViewHandler tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_tableViewHandler tableView:tableView numberOfRowsInSection:section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_tableViewHandler tableView:tableView cellForRowAtIndexPath:indexPath];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [_tableViewHandler tableView:tableView viewForHeaderInSection:section];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [_tableViewHandler tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [_tableViewHandler tableView:tableView viewForFooterInSection:section];
 }
 
 @end
